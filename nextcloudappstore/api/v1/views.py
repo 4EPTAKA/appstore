@@ -44,6 +44,11 @@ class NextcloudReleaseView(ListAPIView):
     serializer_class = NextcloudReleaseSerializer
 
 
+class AppsView(ListAPIView):
+    queryset = App.objects.all()
+    serializer_class = AppSerializer
+
+
 class AppView(DestroyAPIView):
     authentication_classes = (authentication.TokenAuthentication,
                               authentication.BasicAuthentication,)

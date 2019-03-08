@@ -33,6 +33,10 @@ def app_rating_etag(request: Any, id: str) -> str:
     return create_etag([(AppRating.objects.filter(app__id=id), 'rated_at')])
 
 
+def all_apps_etag(request: Any) -> str:
+    return create_etag([(App.objects.all(), 'last_modified')])
+
+
 def categories_etag(request: Any) -> str:
     return create_etag([(Category.objects.all(), 'last_modified')])
 
